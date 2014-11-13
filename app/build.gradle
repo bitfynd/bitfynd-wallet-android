@@ -10,6 +10,15 @@ android {
         versionCode 200
         versionName '4.10'
     }
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = outputFile.name.replace('.apk', "-${versionName}.apk")
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled true
