@@ -28,15 +28,15 @@ This source code of the app contains Gradle configuration which lets you to buil
 ### Releasing the app publicly
 
 To release this app on Google Play Store on your own (or just to publish it on the internet), follow these instructions:
-- At first **you must to rename all instance values of *applicationId* (package name)** in Gradle configuration file *(app/build.gradle)*.
+- At first **you must to rename all instance values of `applicationId` (package name)** in Gradle configuration file `app/build.gradle`.
 
-> **NOTICE:** Don't rename package name in AndroidManifest.xml file, otherwise you'll get many errors while compiling the app. Rename only *applicationId* (package name) in Grade configuration file - Gradle system will do all tasks automaticaly itself.
+> **NOTICE:** Don't rename package name in `AndroidManifest.xml` file, otherwise you'll get many errors while compiling the app. Rename only `applicationId` (package name) in Grade configuration file - Gradle system will do all tasks automaticaly itself.
 
-- Then **you must rename the app name** in string resources file *(app/src/main/res/values/values.xml - string value of "app_name")*.
-- Next, **you must sign the app using your own keystore file**, because we don't provide our own keystore file publicly as only we're updating this app on Google Play Store using exactly our own unique *applicationId* (package name). So, just use your own *applicationId* (package name), app name and keystore file to publish your own app release based on this source code.
+- Then **you must rename the app name** in string resources file `app/src/main/res/values/values.xml` - string value of `app_name`.
+- Next, **you must sign the app using your own keystore file**, because we don't provide our own keystore file publicly as only we're updating this app on Google Play Store using exactly our own unique `applicationId` (package name). So, just use your own `applicationId` (package name), app name and keystore file to publish your own app release based on this source code.
 
 **If you won't follow the instructions above, you will run into these conflicts:**
-- You won't be able to publish this app on Google Play Store, because our original app (Bitfynd) already uses the same *applicationId* (package name) and app name on Google Play Store!
+- You won't be able to publish this app on Google Play Store, because our original app (Bitfynd) already uses the same `applicationId` (package name) and app name on Google Play Store!
 - You'll confuse other users which app is the original one and which is a fork/copy released by other developers (unofficial one)!
 - During installation it will overwrite existing original app (if any) on your and/or other users devices!
 
