@@ -119,7 +119,7 @@ public final class Constants
 	public static final char CHAR_CHECKMARK = '\u2713';
 	public static final char CURRENCY_PLUS_SIGN = '\uff0b';
 	public static final char CURRENCY_MINUS_SIGN = '\uff0d';
-	public static final String PREFIX_ALMOST_EQUAL_TO = String.valueOf(CHAR_ALMOST_EQUAL_TO) + CHAR_THIN_SPACE;
+	public static final String PREFIX_ALMOST_EQUAL_TO = Character.toString(CHAR_ALMOST_EQUAL_TO) + CHAR_THIN_SPACE;
 	public static final int ADDRESS_FORMAT_GROUP_SIZE = 4;
 	public static final int ADDRESS_FORMAT_LINE_SIZE = 12;
 
