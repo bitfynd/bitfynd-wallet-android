@@ -41,7 +41,7 @@ To release this app on Google Play Store on your own (or just to publish it on t
 - You won't be able to publish this app on Google Play Store, because our original app (Bitfynd) already uses the same `applicationId` (package name) and app name on Google Play Store!
 - You'll confuse other users which app is the original one and which is a fork/copy released by other developers (unofficial one)!
 - During installation it will overwrite existing original app (if any) on your and/or other users devices!
-- Your app users will be confused while connecting to Bitfynd API with wrong user-agent and getting wrong information from it, sending reports to wrong email, browsing wrong git URLs and donating to wrong address!
+- Your app users will be confused while connecting to Bitfynd API with wrong app data and getting wrong response or even errors from it, sending reports to wrong email, browsing wrong git URLs and donating to wrong address!
 
 ### Source Code
 
