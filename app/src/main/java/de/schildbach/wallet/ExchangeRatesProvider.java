@@ -106,14 +106,12 @@ public class ExchangeRatesProvider extends ContentProvider
 	private static final String[] BLOCKCHAININFO_FIELDS = new String[] { "15m" };
 	private static final String BLOCKCHAININFO_SOURCE = "blockchain.info";
 
-	// https://bitmarket.eu/api/ticker
-
 	static
 	{
 		try
 		{
-			BITCOINAVERAGE_URL = new URL("https://api.bitcoinaverage.com/custom/abw");
-			BLOCKCHAININFO_URL = new URL("https://blockchain.info/ticker");
+			BITCOINAVERAGE_URL = new URL(Constants.BITCOINAVERAGE_API_URL);
+			BLOCKCHAININFO_URL = new URL(Constants.BLOCKCHAIN_TICKER_URL);
 		}
 		catch (final MalformedURLException x)
 		{

@@ -23,6 +23,9 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.widget.Toast;
 
+import de.schildbach.wallet.BuildConfig;
+import de.schildbach.wallet.Constants;
+
 /**
  * @author Andreas Schildbach
  */
@@ -271,8 +274,8 @@ public final class BitcoinIntegration
 	{
 		Toast.makeText(context, "No Bitcoin application found.\nPlease install Bitcoin Wallet.", Toast.LENGTH_LONG).show();
 
-		final Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=de.schildbach.wallet"));
-		final Intent binaryIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/schildbach/bitcoin-wallet/releases"));
+		final Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+		final Intent binaryIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.BINARY_URL));
 
 		final PackageManager pm = context.getPackageManager();
 		if (pm.resolveActivity(marketIntent, 0) != null)

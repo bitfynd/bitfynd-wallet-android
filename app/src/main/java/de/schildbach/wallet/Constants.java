@@ -83,6 +83,10 @@ public final class Constants
 	public static final String BITEASY_API_URL = NETWORK_PARAMETERS.getId().equals(NetworkParameters.ID_MAINNET) ? BITEASY_API_URL_PROD
 			: BITEASY_API_URL_TEST;
 
+    public static final String BITCOINAVERAGE_API_URL = "https://api.bitcoinaverage.com/custom/abw";
+
+    public static final String BLOCKCHAIN_TICKER_URL = "https://blockchain.info/ticker";
+
 	/** URL to fetch version alerts from. */
 	public static final String VERSION_URL = "http://api.bitfynd.com/version";
 
