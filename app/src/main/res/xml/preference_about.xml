@@ -5,7 +5,7 @@
 		android:key="about_version"
 		android:title="@string/about_version_title" />
 	<Preference
-		android:summary="© 2011-2014, the Bitcoin Wallet developers"
+		android:summary="@string/about_copyright_summary"
 		android:title="@string/about_copyright_title" />
 	<Preference
 		android:key="about_license"
@@ -17,17 +17,17 @@
 	</Preference>
 	<Preference
 		android:key="about_source"
-		android:summary="https://github.com/schildbach/bitcoin-wallet"
+		android:summary="https://github.com/Bitfynd/bitfynd-wallet-android"
 		android:title="@string/about_source_title" >
 		<intent
 			android:action="android.intent.action.VIEW"
-			android:data="https://github.com/schildbach/bitcoin-wallet" />
+			android:data="https://github.com/Bitfynd/bitfynd-wallet-android" />
 	</Preference>
 	<Preference
 		android:key="about_market_app"
 		android:summary="@string/about_market_app_summary"
 		android:title="@string/about_market_app_title" />
-	<Preference
+	<!-- <Preference
 		android:key="about_community_googleplus"
 		android:summary="@string/about_community_googleplus_summary"
 		android:title="@string/about_community_googleplus_title" >
@@ -42,7 +42,7 @@
 		<intent
 			android:action="android.intent.action.VIEW"
 			android:data="https://twitter.com/#!/bitcoin_wallet" />
-	</Preference>
+	</Preference> -->
 	<Preference
 		android:key="about_credits_bitcoinj"
 		android:summary="https://bitcoinj.github.io" >
@@ -57,14 +57,6 @@
 		<intent
 			android:action="android.intent.action.VIEW"
 			android:data="https://github.com/zxing/zxing" />
-	</Preference>
-	<Preference
-		android:key="about_credits_icon"
-		android:summary="https://bitcointalk.org/index.php?action=profile;u=2062"
-		android:title="@string/about_credits_icon_title" >
-		<intent
-			android:action="android.intent.action.VIEW"
-			android:data="https://bitcointalk.org/index.php?action=profile;u=2062" />
 	</Preference>
 
 </PreferenceScreen>

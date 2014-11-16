@@ -236,7 +236,6 @@
   <string name="about_source_title">Lähdekoodi</string>
   <string name="about_credits_bitcoinj_title">Tämä sovellus käyttää \'bitcoinj\'</string>
   <string name="about_credits_zxing_title">Tämä sovellus käyttää \'zxing\'</string>
-  <string name="about_credits_icon_title">Tämä sovellus käyttää ikonia \'bitboy\'</string>
   <string name="about_community_googleplus_title">Google+-yhteisö</string>
   <string name="about_community_googleplus_summary">Keskustelua ohjelmasta</string>
   <string name="about_market_app_title">Google Play-sivusto</string>

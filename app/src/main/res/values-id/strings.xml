@@ -152,7 +152,6 @@
 	<string name="about_license_title">Lisensi</string>
 	<string name="about_credits_bitcoinj_title">Apl ini menggunakan bitcoinj %s</string>
 	<string name="about_credits_zxing_title">Apl ini menggunakan \'zxing\'</string>
-	<string name="about_credits_icon_title">Apl ini menggunakan ikon oleh \'bitboy\'</string>
 	<string name="about_market_app_title">Halaman Apl Google Play</string>
 	<string name="notification_coins_received_msg">Diterima %s</string>
 	<string name="notification_peers_connected_msg">%d peer terhubung</string>

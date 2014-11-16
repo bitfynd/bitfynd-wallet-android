@@ -72,7 +72,6 @@
 	<string name="about_license_title">Licens</string>
 	<string name="about_credits_bitcoinj_title">Denna app använder bitcoinj %s</string>
 	<string name="about_credits_zxing_title">Denna app använder \'zxing\'</string>
-	<string name="about_credits_icon_title">Appen använder en ikon av \'bitboy\'</string>
 	<string name="about_market_app_title">Google Play app sida</string>
 	<string name="notification_coins_received_msg">Tagit emot %s</string>
 	<string name="notification_peers_connected_msg">Ansluten till %d noder</string>

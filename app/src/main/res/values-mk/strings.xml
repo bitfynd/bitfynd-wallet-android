@@ -157,7 +157,6 @@
 	<string name="about_license_title">Лиценца</string>
 	<string name="about_credits_bitcoinj_title">Оваа апликација користи bitcoinj %s</string>
 	<string name="about_credits_zxing_title">Оваа апликација користи \'zxing\'</string>
-	<string name="about_credits_icon_title">Оваа апликација користи икона од \'bitboy\'</string>
 	<string name="about_community_googleplus_title">Google+ заедница</string>
 	<string name="about_community_googleplus_summary">Дискусија за апликацијата</string>
 	<string name="about_market_app_title">Google Play страница</string>
