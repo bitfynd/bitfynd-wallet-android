@@ -110,7 +110,7 @@ public class Configuration
 
 	public boolean getConnectivityNotificationEnabled()
 	{
-		return prefs.getBoolean(PREFS_KEY_CONNECTIVITY_NOTIFICATION, false);
+		return prefs.getBoolean(PREFS_KEY_CONNECTIVITY_NOTIFICATION, true);
 	}
 
 	public String getTrustedPeerHost()
