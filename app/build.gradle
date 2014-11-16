@@ -7,8 +7,8 @@ android {
         applicationId 'com.bitfynd.wallet'
         minSdkVersion 15
         targetSdkVersion 21
-        versionCode 201
-        versionName '4.11'
+        versionCode 202
+        versionName '4.12'
     }
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
