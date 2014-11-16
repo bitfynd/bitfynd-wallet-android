@@ -160,19 +160,18 @@ public final class SendCoinsFragment extends Fragment
 	private Button viewGo;
 	private Button viewCancel;
 
-    private MenuItem priorityAction;
+    private State state = State.INPUT;
 
-	private PaymentIntent paymentIntent;
-
+    private PaymentIntent paymentIntent = null;
+	private boolean priority = false;
 	private AddressAndLabel validatedAddress = null;
 
-	private Transaction dryrunTransaction;
-	private Exception dryrunException;
+    private Transaction sentTransaction = null;
 
 	private Boolean directPaymentAck = null;
 
-	private State state = State.INPUT;
-	private Transaction sentTransaction = null;
+    private Transaction dryrunTransaction;
+    private Exception dryrunException;
 
 	private static final int ID_RATE_LOADER = 0;
 	private static final int ID_RECEIVING_ADDRESS_LOADER = 1;
@@ -730,9 +729,10 @@ public final class SendCoinsFragment extends Fragment
 
 	private void saveInstanceState(final Bundle outState)
 	{
-		outState.putParcelable("payment_intent", paymentIntent);
-
 		outState.putSerializable("state", state);
+
+        outState.putParcelable("payment_intent", paymentIntent);
+		outState.putBoolean("priority", priority);
 
 		if (validatedAddress != null)
 			outState.putParcelable("validated_address", validatedAddress);
@@ -746,9 +746,10 @@ public final class SendCoinsFragment extends Fragment
 
 	private void restoreInstanceState(final Bundle savedInstanceState)
 	{
-		paymentIntent = (PaymentIntent) savedInstanceState.getParcelable("payment_intent");
-
 		state = (State) savedInstanceState.getSerializable("state");
+
+        paymentIntent = (PaymentIntent) savedInstanceState.getParcelable("payment_intent");
+		priority = savedInstanceState.getBoolean("priority");
 
 		validatedAddress = savedInstanceState.getParcelable("validated_address");
 
@@ -822,8 +823,6 @@ public final class SendCoinsFragment extends Fragment
 	{
 		inflater.inflate(R.menu.send_coins_fragment_options, menu);
 
-        priorityAction = menu.findItem(R.id.send_coins_options_priority);
-
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -839,6 +838,8 @@ public final class SendCoinsFragment extends Fragment
         final MenuItem emptyAction = menu.findItem(R.id.send_coins_options_empty);
         emptyAction.setEnabled(state == State.INPUT);
 
+        final MenuItem priorityAction = menu.findItem(R.id.send_coins_options_priority);
+		priorityAction.setChecked(priority);
         priorityAction.setEnabled(state == State.INPUT);
 
         super.onPrepareOptionsMenu(menu);
@@ -967,7 +968,7 @@ public final class SendCoinsFragment extends Fragment
 		// prepare send request
 		final SendRequest sendRequest = finalPaymentIntent.toSendRequest();
 		sendRequest.emptyWallet = paymentIntent.mayEditAmount() && finalAmount.equals(wallet.getBalance(BalanceType.AVAILABLE));
-        sendRequest.feePerKb = priorityAction.isChecked() ? SendRequest.DEFAULT_FEE_PER_KB.multiply(10) : SendRequest.DEFAULT_FEE_PER_KB;
+        sendRequest.feePerKb = priority ? SendRequest.DEFAULT_FEE_PER_KB.multiply(10) : SendRequest.DEFAULT_FEE_PER_KB;
         sendRequest.memo = paymentIntent.memo;
 		sendRequest.aesKey = encryptionKey;
 
@@ -1122,7 +1123,8 @@ public final class SendCoinsFragment extends Fragment
 
     private void handlePriority()
 	{
-		priorityAction.setChecked(!priorityAction.isChecked());
+        priority = !priority;
+
 		executeDryrun();
 		updateView();
 	}
@@ -1154,7 +1156,7 @@ public final class SendCoinsFragment extends Fragment
 				final SendRequest sendRequest = paymentIntent.mergeWithEditedValues(amount, dummy).toSendRequest();
 				sendRequest.signInputs = false;
 				sendRequest.emptyWallet = paymentIntent.mayEditAmount() && amount.equals(wallet.getBalance(BalanceType.AVAILABLE));
-                sendRequest.feePerKb = priorityAction.isChecked() ? SendRequest.DEFAULT_FEE_PER_KB.multiply(10) : SendRequest.DEFAULT_FEE_PER_KB;
+                sendRequest.feePerKb = priority ? SendRequest.DEFAULT_FEE_PER_KB.multiply(10) : SendRequest.DEFAULT_FEE_PER_KB;
 				wallet.completeTx(sendRequest);
 				dryrunTransaction = sendRequest.tx;
 			}
