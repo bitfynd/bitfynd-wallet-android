@@ -48,7 +48,7 @@ android {
 dependencies {
     compile 'com.android.support:support-v4:21.0.0'
     compile 'com.android.support:support-v13:21.0.0'
-    compile 'org.bitcoinj:bitcoinj-core:0.12.1'
+    compile 'org.bitcoinj:bitcoinj-core:0.12.2'
     compile 'org.bitcoinj:orchid:1.0'
     compile 'com.google.protobuf:protobuf-java:2.6.1'
     compile 'com.google.guava:guava:18.0'
