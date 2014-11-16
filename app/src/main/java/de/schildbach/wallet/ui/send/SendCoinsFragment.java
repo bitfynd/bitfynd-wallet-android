@@ -298,8 +298,8 @@ public final class SendCoinsFragment extends Fragment
 		@Override
 		public void changed()
 		{
-			executeDryrun();
 			updateView();
+            handler.post(dryrunRunnable);
 		}
 
 		@Override
@@ -682,8 +682,8 @@ public final class SendCoinsFragment extends Fragment
 		loaderManager.initLoader(ID_RATE_LOADER, null, rateLoaderCallbacks);
 		loaderManager.initLoader(ID_RECEIVING_ADDRESS_LOADER, null, receivingAddressLoaderCallbacks);
 
-		executeDryrun();
 		updateView();
+        handler.post(dryrunRunnable);
 	}
 
 	@Override
@@ -1125,47 +1125,55 @@ public final class SendCoinsFragment extends Fragment
 	{
         priority = !priority;
 
-		executeDryrun();
 		updateView();
+        handler.post(dryrunRunnable);
 	}
 
 	private void handleEmpty()
 	{
 		final Coin available = wallet.getBalance(BalanceType.AVAILABLE);
-
 		amountCalculatorLink.setBtcAmount(available);
 
-		executeDryrun();
 		updateView();
+        handler.post(dryrunRunnable);
 	}
 
-	private void executeDryrun()
-	{
-		if (state != State.INPUT)
-			return;
+    private Runnable dryrunRunnable = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            if (state == State.INPUT)
+                executeDryrun();
 
-		dryrunTransaction = null;
-		dryrunException = null;
+            updateView();
+        }
 
-		final Coin amount = amountCalculatorLink.getAmount();
-		if (amount != null)
-		{
-			try
-			{
-				final Address dummy = wallet.currentReceiveAddress(); // won't be used, tx is never committed
-				final SendRequest sendRequest = paymentIntent.mergeWithEditedValues(amount, dummy).toSendRequest();
-				sendRequest.signInputs = false;
-				sendRequest.emptyWallet = paymentIntent.mayEditAmount() && amount.equals(wallet.getBalance(BalanceType.AVAILABLE));
-                sendRequest.feePerKb = priority ? SendRequest.DEFAULT_FEE_PER_KB.multiply(10) : SendRequest.DEFAULT_FEE_PER_KB;
-				wallet.completeTx(sendRequest);
-				dryrunTransaction = sendRequest.tx;
-			}
-			catch (final Exception x)
-			{
-				dryrunException = x;
-			}
-		}
-	}
+        private void executeDryrun()
+        {
+            dryrunTransaction = null;
+            dryrunException = null;
+
+            final Coin amount = amountCalculatorLink.getAmount();
+            if (amount != null)
+            {
+                try
+                {
+                    final Address dummy = wallet.currentReceiveAddress(); // won't be used, tx is never committed
+                    final SendRequest sendRequest = paymentIntent.mergeWithEditedValues(amount, dummy).toSendRequest();
+                    sendRequest.signInputs = false;
+                    sendRequest.emptyWallet = paymentIntent.mayEditAmount() && amount.equals(wallet.getBalance(BalanceType.AVAILABLE));
+                    sendRequest.feePerKb = priority ? SendRequest.DEFAULT_FEE_PER_KB.multiply(10) : SendRequest.DEFAULT_FEE_PER_KB;
+                    wallet.completeTx(sendRequest);
+                    dryrunTransaction = sendRequest.tx;
+                }
+                catch (final Exception x)
+                {
+                    dryrunException = x;
+                }
+            }
+        }
+    };
 
     private void setState(final State state)
 	{
@@ -1482,8 +1490,8 @@ public final class SendCoinsFragment extends Fragment
 						directPaymentEnableView.setChecked(!Constants.BUG_OPENSSL_HEARTBLEED);
 
 					requestFocusFirst();
-					executeDryrun();
 					updateView();
+                    handler.post(dryrunRunnable);
 				}
 
 				if (paymentIntent.hasPaymentRequestUrl())
@@ -1527,8 +1535,8 @@ public final class SendCoinsFragment extends Fragment
 				{
 					// success
 					updateStateFrom(paymentIntent);
-					executeDryrun();
 					updateView();
+                    handler.post(dryrunRunnable);
 				}
 				else
 				{
