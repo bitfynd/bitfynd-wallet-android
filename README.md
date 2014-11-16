@@ -33,9 +33,9 @@ To release this app on Google Play Store on your own (or just to publish it on t
 > **NOTICE:** Don't rename package name in `AndroidManifest.xml` file, otherwise you'll get many errors while compiling the app. Rename only `applicationId` (package name) in Grade configuration file - Gradle system will do all tasks automaticaly itself.
 
 - Then **you must to rename the app name** in string resource files `app/src/main/res/values/btc.xml` and `app/src/testnet/res/values/btc.xml`.
-- Next, **you must sign the app using your own keystore file**, because we don't provide our own keystore file publicly as only we're updating this app on Google Play Store using exactly our own unique `applicationId` (package name). So, just use your own `applicationId` (package name), app name and keystore file to publish your own app release based on this source code.
-- Now, **you must change `app_icon.png`** in drawable resource files `app/src/main/res/drawable-*/app_icon.png` and `app/src/testnet/res/drawable-*/app_icon.png`.
-- Finally, **you must review and change constants to your own ones** - Bitfynd API URL, user-agent, donation address, reports email, git repository URL, git releases URL and many other constant-settings if you want to have an independent app system in `app/src/main/java/de/schildbach/wallet/Constants.java` file.
+- Next **you must change `app_icon.png`** in drawable resource files `app/src/main/res/drawable-*/app_icon.png` and `app/src/testnet/res/drawable-*/app_icon.png`.
+- Now **you must review and change constants to your own ones** - Bitfynd API URL, user-agent, donation address, reports email, git repository URL, git releases URL and many other constant-settings if you want to have an independent app system in `app/src/main/java/de/schildbach/wallet/Constants.java` file.
+- Finally **you must sign the app using your own keystore file**, because we don't provide our own keystore file publicly as only we're updating this app on Google Play Store using exactly our own unique `applicationId` (package name). So, just use your own `applicationId` (package name), app name and keystore file to publish your own app release based on this source code.
 
 **If you won't follow the instructions above, you will run into these conflicts:**
 - You won't be able to publish this app on Google Play Store, because our original app (Bitfynd) already uses the same `applicationId` (package name) and app name on Google Play Store!
