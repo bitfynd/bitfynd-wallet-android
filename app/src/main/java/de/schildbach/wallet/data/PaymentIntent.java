@@ -93,7 +93,7 @@ public final class PaymentIntent implements Parcelable
 		{
 			final StringBuilder builder = new StringBuilder();
 
-			builder.append(getClass().getSimpleName());
+			builder.append(((Object) this).getClass().getSimpleName());
 			builder.append('[');
 			builder.append(hasAmount() ? amount.toPlainString() : "null");
 			builder.append(',');
@@ -440,7 +440,7 @@ public final class PaymentIntent implements Parcelable
 	{
 		final StringBuilder builder = new StringBuilder();
 
-		builder.append(getClass().getSimpleName());
+		builder.append(((Object) this).getClass().getSimpleName());
 		builder.append('[');
 		builder.append(standard);
 		builder.append(',');

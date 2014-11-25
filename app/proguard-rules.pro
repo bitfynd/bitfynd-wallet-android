@@ -15,6 +15,22 @@
 -keep public class * extends android.preference.Preference
 -keep public class com.android.vending.licensing.ILicensingService
 
+# google play services
+-keep class * extends java.util.ListResourceBundle {
+	protected Object[][] getContents();
+}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {
+	public static final *** NULL;
+}
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {
+	@com.google.android.gms.common.annotation.KeepName *;
+}
+-keepnames class * implements android.os.Parcelable {
+	public static final ** CREATOR;
+}
+
+# other
 -keepclasseswithmembernames class * {
 	native <methods>;
 }
@@ -41,6 +57,8 @@
 }
 
 # android-support
+-keep class android.support.** { *; }
+-keep interface android.support.** { *; }
 -dontwarn android.support.v4.**
 
 # bitcoinj

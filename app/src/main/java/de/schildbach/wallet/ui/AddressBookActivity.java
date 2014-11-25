@@ -23,7 +23,6 @@ import java.util.List;
 import org.bitcoinj.core.Address;
 import org.bitcoinj.core.ECKey;
 
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -32,6 +31,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,8 +62,8 @@ public final class AddressBookActivity extends AbstractWalletActivity
 
 		setContentView(R.layout.address_book_content);
 
-		final ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
+		final ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
 		final FragmentManager fragmentManager = getFragmentManager();
 

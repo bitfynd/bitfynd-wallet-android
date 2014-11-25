@@ -73,7 +73,7 @@ import android.os.HandlerThread;
 import android.os.Process;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.ActionMode;
+import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -585,7 +585,7 @@ public final class SendCoinsFragment extends Fragment
 					final Address address = paymentIntent.hasAddress() ? paymentIntent.getAddress()
 							: (validatedAddress != null ? validatedAddress.address : null);
 					if (address != null)
-						actionMode = activity.startActionMode(new ReceivingAddressActionMode(address));
+						actionMode = activity.startSupportActionMode(new ReceivingAddressActionMode(address));
 				}
 				else
 				{

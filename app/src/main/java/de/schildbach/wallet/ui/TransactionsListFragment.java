@@ -63,7 +63,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.text.SpannableStringBuilder;
 import android.text.format.DateUtils;
 import android.text.style.StyleSpan;
-import android.view.ActionMode;
+import android.support.v7.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -204,7 +204,7 @@ public class TransactionsListFragment extends FancyListFragment implements Loade
 
 	private void handleTransactionClick(@Nonnull final Transaction tx)
 	{
-		activity.startActionMode(new ActionMode.Callback()
+		activity.startSupportActionMode(new ActionMode.Callback()
 		{
 			private Address address;
 			private byte[] serializedTx;

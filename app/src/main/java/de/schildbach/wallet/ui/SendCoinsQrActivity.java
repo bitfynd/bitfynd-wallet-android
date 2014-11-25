@@ -28,6 +28,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.data.PaymentIntent;
 import de.schildbach.wallet.ui.InputParser.StringInputParser;
@@ -37,7 +39,7 @@ import de.schildbach.wallet.ui.send.SweepWalletActivity;
 /**
  * @author Andreas Schildbach
  */
-public final class SendCoinsQrActivity extends Activity
+public final class SendCoinsQrActivity extends ActionBarActivity
 {
 	private static final int REQUEST_CODE_SCAN = 0;
 

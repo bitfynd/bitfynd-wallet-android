@@ -29,6 +29,8 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
+import android.support.annotation.NonNull;
+
 import de.schildbach.wallet.Constants;
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.ui.DialogBuilder;
@@ -67,7 +69,7 @@ public final class DiagnosticsFragment extends PreferenceFragment
 	}
 
 	@Override
-	public boolean onPreferenceTreeClick(final PreferenceScreen preferenceScreen, final Preference preference)
+	public boolean onPreferenceTreeClick(final PreferenceScreen preferenceScreen, @NonNull final Preference preference)
 	{
 		final String key = preference.getKey();
 

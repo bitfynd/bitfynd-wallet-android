@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 	android:baselineAligned="false"
 	android:orientation="horizontal"
 	tools:ignore="RequiredSize" >
@@ -8,9 +10,7 @@
 	<FrameLayout
 		android:layout_width="0px"
 		android:layout_height="match_parent"
-		android:layout_weight="1"
-		android:foreground="@drawable/fragment_shadow_vertical_flip"
-		android:foregroundGravity="right|fill_vertical" >
+		android:layout_weight="1" >
 
 		<include
 			android:layout_width="match_parent"

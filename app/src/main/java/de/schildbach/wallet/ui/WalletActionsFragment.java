@@ -68,16 +68,6 @@ public final class WalletActionsFragment extends Fragment
 			}
 		});
 
-		final View sendQrButton = view.findViewById(R.id.wallet_actions_send_qr);
-		sendQrButton.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(final View v)
-			{
-				activity.handleScan();
-			}
-		});
-
 		return view;
 	}
 
@@ -96,6 +86,7 @@ public final class WalletActionsFragment extends Fragment
 		final View view = getView();
 		final ViewParent parent = view.getParent();
 		final View fragment = parent instanceof FrameLayout ? (FrameLayout) parent : view;
-		fragment.setVisibility(showActions ? View.VISIBLE : View.GONE);
+        // TODO
+		//fragment.setVisibility(showActions ? View.VISIBLE : View.GONE);
 	}
 }

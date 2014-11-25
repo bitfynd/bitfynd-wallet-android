@@ -35,15 +35,15 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.ActionMode;
+import android.support.v7.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ResourceCursorAdapter;
-import android.widget.SearchView;
-import android.widget.SearchView.OnQueryTextListener;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
 
 import de.schildbach.wallet.BuildConfig;
@@ -157,6 +157,7 @@ public final class ExchangeRatesFragment extends FancyListFragment implements On
 		inflater.inflate(R.menu.exchange_rates_fragment_options, menu);
 
 		final SearchView searchView = (SearchView) menu.findItem(R.id.exchange_rates_options_search).getActionView();
+
 		searchView.setOnQueryTextListener(new OnQueryTextListener()
 		{
 			@Override
@@ -189,7 +190,7 @@ public final class ExchangeRatesFragment extends FancyListFragment implements On
 		final Cursor cursor = (Cursor) adapter.getItem(position);
 		final ExchangeRate exchangeRate = ExchangeRatesProvider.getExchangeRate(cursor);
 
-		activity.startActionMode(new ActionMode.Callback()
+		activity.startSupportActionMode(new ActionMode.Callback()
 		{
 			@Override
 			public boolean onCreateActionMode(final ActionMode mode, final Menu menu)

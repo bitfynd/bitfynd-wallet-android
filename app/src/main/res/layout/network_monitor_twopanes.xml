@@ -28,9 +28,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="0px"
 			android:layout_weight="1"
-			android:background="@color/bg_bright"
-			android:foreground="@drawable/fragment_shadow_horizontal_light"
-			android:foregroundGravity="top|fill_horizontal" >
+			android:background="@color/bg_bright" >
 
 			<fragment
 				android:id="@+id/peer_list_fragment"
@@ -69,9 +67,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="0px"
 			android:layout_weight="1"
-			android:background="@color/bg_bright"
-			android:foreground="@drawable/fragment_shadow_horizontal_light"
-			android:foregroundGravity="top|fill_horizontal" >
+			android:background="@color/bg_bright" >
 
 			<fragment
 				android:id="@+id/block_list_fragment"

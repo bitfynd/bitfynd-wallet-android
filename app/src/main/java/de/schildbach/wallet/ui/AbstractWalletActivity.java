@@ -22,18 +22,20 @@ import javax.annotation.Nonnull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import de.schildbach.wallet.WalletApplication;
 import de.schildbach.wallet.R;
 
 /**
  * @author Andreas Schildbach
  */
-public abstract class AbstractWalletActivity extends Activity
+
+public abstract class AbstractWalletActivity extends ActionBarActivity
 {
 	private WalletApplication application;
 

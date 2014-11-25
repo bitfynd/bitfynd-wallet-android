@@ -52,7 +52,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.format.DateUtils;
-import android.view.ActionMode;
+import android.support.v7.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -169,7 +169,7 @@ public final class BlockListFragment extends ListFragment
 	{
 		final StoredBlock storedBlock = adapter.getItem(position);
 
-		activity.startActionMode(new ActionMode.Callback()
+		activity.startSupportActionMode(new ActionMode.Callback()
 		{
 			@Override
 			public boolean onCreateActionMode(final ActionMode mode, final Menu menu)

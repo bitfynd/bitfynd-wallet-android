@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
 	android:layout_height="wrap_content" >
 
 	<LinearLayout
@@ -8,14 +8,15 @@
 		style="@style/My.Widget.Button.Borderless"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:gravity="center"
+		android:gravity="start"
 		android:orientation="vertical" >
 
 		<de.schildbach.wallet.ui.CurrencyTextView
 			android:id="@+id/wallet_balance_btc"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:textSize="@dimen/font_size_huge" />
+			android:textSize="@dimen/font_size_huge"
+            android:textColor="@color/balance_light"/>
 
 		<TextView
 			android:id="@+id/wallet_balance_too_much"
@@ -24,7 +25,7 @@
 			android:layout_marginBottom="8dp"
 			android:layout_marginLeft="@dimen/list_entry_padding_horizontal"
 			android:text="@string/wallet_balance_fragment_too_much"
-			android:textColor="@color/fg_less_significant"
+			android:textColor="@color/balance_light"
 			android:textSize="@dimen/font_size_tiny"
 			android:visibility="gone" />
 
@@ -40,7 +41,8 @@
 				android:id="@+id/wallet_balance_local"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:textSize="@dimen/font_size_small" />
+				android:textSize="@dimen/font_size_small"
+                android:textColor="@color/balance_light"/>
 		</FrameLayout>
 	</LinearLayout>
 
@@ -51,7 +53,7 @@
 		android:layout_gravity="center"
 		android:layout_marginLeft="@dimen/list_entry_padding_horizontal_lax"
 		android:layout_marginRight="@dimen/list_entry_padding_horizontal_lax"
-		android:textColor="@color/fg_less_significant"
+		android:textColor="@color/balance_light"
 		android:textSize="@dimen/font_size_small"
 		android:visibility="gone" />
 

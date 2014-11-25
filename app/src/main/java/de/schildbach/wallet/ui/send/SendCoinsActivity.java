@@ -19,7 +19,7 @@ package de.schildbach.wallet.ui.send;
 
 import javax.annotation.Nonnull;
 
-import android.app.ActionBar;
+import android.support.v7.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,7 +53,7 @@ public final class SendCoinsActivity extends AbstractBindServiceActivity
 
 		getWalletApplication().startBlockchainService(false);
 
-		final ActionBar actionBar = getActionBar();
+		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 

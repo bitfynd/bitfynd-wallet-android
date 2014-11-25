@@ -59,8 +59,8 @@ public class Configuration
 	public static final String PREFS_KEY_REMIND_BACKUP = "remind_backup";
 	private static final String PREFS_KEY_LAST_BACKUP = "last_backup";
 
-	private static final int PREFS_DEFAULT_BTC_SHIFT = 3;
-	private static final int PREFS_DEFAULT_BTC_PRECISION = 2;
+	private static final int PREFS_DEFAULT_BTC_SHIFT = 0;
+	private static final int PREFS_DEFAULT_BTC_PRECISION = 4;
 
 	private static final Logger log = LoggerFactory.getLogger(Configuration.class);
 
@@ -94,7 +94,7 @@ public class Configuration
 		final int shift = getBtcShift();
 		final int minPrecision = shift <= 3 ? 2 : 0;
 		final int decimalRepetitions = (getBtcPrecision() - minPrecision) / 2;
-		return new MonetaryFormat().shift(shift).minDecimals(minPrecision).repeatOptionalDecimals(2, decimalRepetitions);
+		return new MonetaryFormat().shift(shift).minDecimals(minPrecision).repeatOptionalDecimals(2, decimalRepetitions).postfixCode();
 	}
 
 	public MonetaryFormat getMaxPrecisionFormat()

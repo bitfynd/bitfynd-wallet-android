@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:orientation="vertical"
-	tools:ignore="RequiredSize" >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	tools:ignore="RequiredSize">
 
 	<FrameLayout
 		android:layout_width="match_parent"
 		android:layout_height="0px"
-		android:layout_weight="1"
-		android:foreground="@drawable/fragment_shadow_horizontal_flip"
-		android:foregroundGravity="bottom|fill_horizontal" >
+		android:layout_weight="1" >
 
 		<include
 			android:layout_width="match_parent"

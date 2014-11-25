@@ -43,6 +43,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Process;
 import android.os.Vibrator;
+import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -63,7 +64,7 @@ import de.schildbach.wallet.R;
 /**
  * @author Andreas Schildbach
  */
-public final class ScanActivity extends Activity implements SurfaceHolder.Callback
+public final class ScanActivity extends ActionBarActivity implements SurfaceHolder.Callback
 {
 	public static final String INTENT_EXTRA_RESULT = "result";
 

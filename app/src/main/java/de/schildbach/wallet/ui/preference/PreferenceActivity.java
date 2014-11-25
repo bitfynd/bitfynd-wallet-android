@@ -17,32 +17,64 @@
 
 package de.schildbach.wallet.ui.preference;
 
-import java.util.List;
-
-import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceScreen;
+import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 import de.schildbach.wallet.R;
 
 /**
  * @author Andreas Schildbach
  */
-public final class PreferenceActivity extends android.preference.PreferenceActivity
+public final class PreferenceActivity extends ActionBarActivity
 {
-	@Override
-	protected void onCreate(final Bundle savedInstanceState)
-	{
-		super.onCreate(savedInstanceState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		final ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
-	}
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new HeadersFragment())
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit();
 
-	@Override
-	public void onBuildHeaders(final List<Header> target)
-	{
-		loadHeadersFromResource(R.xml.preference_headers, target);
-	}
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    public static class HeadersFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.preference_headers);
+        }
+
+        @Override
+        public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, @NonNull Preference preference) {
+            Fragment frag = null;
+
+            try {
+                frag = (Fragment) Class.forName(preference.getFragment()).newInstance();
+            }
+            catch (java.lang.InstantiationException e) { e.printStackTrace(); }
+            catch (IllegalAccessException e) { e.printStackTrace(); }
+            catch (ClassNotFoundException e) { e.printStackTrace(); }
+
+            getFragmentManager().beginTransaction()
+                    .replace(android.R.id.content, frag)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .addToBackStack(null)
+                    .commit();
+
+            return false;
+        }
+    }
 
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item)
@@ -50,7 +82,7 @@ public final class PreferenceActivity extends android.preference.PreferenceActiv
 		switch (item.getItemId())
 		{
 			case android.R.id.home:
-				finish();
+                onBackPressed();
 				return true;
 		}
 
@@ -58,10 +90,16 @@ public final class PreferenceActivity extends android.preference.PreferenceActiv
 	}
 
     @Override
-    protected boolean isValidFragment(String fragmentName) {
-        // check if an allowed fragment is used
-        return SettingsFragment.class.getName().equals(fragmentName)
-                || DiagnosticsFragment.class.getName().equals(fragmentName)
-                || AboutFragment.class.getName().equals(fragmentName);
+    public void onBackPressed() {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+
+        if(fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
+            ft.commit();
+        }
+        else {
+            finish();
+        }
     }
 }
