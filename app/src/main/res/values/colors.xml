@@ -9,6 +9,11 @@
     <color name="bg_warning">#ffe53935</color>
     <color name="gradient_start">#22000000</color>
 
+    <color name="widget_btc_value">#ffffffff</color>
+    <color name="widget_fiat_value">#ffdddddd</color>
+    <color name="widget_fiat_name">#ffbbbbbb</color>
+    <color name="widget_bg_focus">#40000000</color>
+
 	<!-- foreground -->
 	<color name="fg_significant">#ff000000</color>
 	<color name="fg_less_significant">#ff666666</color>
