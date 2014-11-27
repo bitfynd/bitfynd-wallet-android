@@ -130,7 +130,7 @@ public final class WalletBalanceFragment extends Fragment
 
 		viewBalanceLocalFrame = (FrameLayout) view.findViewById(R.id.wallet_balance_local_frame);
 		if (showExchangeRatesOption)
-			viewBalanceLocalFrame.setForeground(getResources().getDrawable(R.drawable.dropdown_ic_arrow_small));
+			viewBalanceLocalFrame.setForeground(getResources().getDrawable(R.drawable.ic_settings_white));
 
 		viewBalanceLocal = (CurrencyTextView) view.findViewById(R.id.wallet_balance_local);
 		viewBalanceLocal.setInsignificantRelativeSize(1);
