@@ -61,7 +61,8 @@ public final class AboutFragment extends PreferenceFragment
 
 		addPreferencesFromResource(R.xml.preference_about);
 
-		findPreference(KEY_ABOUT_VERSION).setSummary(application.packageInfo().versionName);
+		findPreference(KEY_ABOUT_VERSION).setSummary("v" + application.packageInfo().versionName
+                + " / " + getString(R.string.about_copyright));
 		Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(Constants.MARKET_APP_URL, BuildConfig.APPLICATION_ID)));
 		if (packageManager.resolveActivity(marketIntent, 0) == null)
 			marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(Constants.WEBMARKET_APP_URL, BuildConfig.APPLICATION_ID)));
