@@ -13,7 +13,7 @@
 	<dimen name="list_entry_padding_vertical">12dp</dimen>
 	<dimen name="list_entry_padding_vertical_lax">18dp</dimen>
 	<dimen name="divider_currency_padding">16dp</dimen>
-	<dimen name="wallet_address_qr_size">128dp</dimen>
+	<dimen name="wallet_address_qr_size">108dp</dimen>
     <dimen name="request_coins_qr_size">192dp</dimen>
 	<dimen name="bitmap_dialog_qr_size">320dp</dimen>
 

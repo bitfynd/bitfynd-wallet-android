@@ -17,6 +17,7 @@
 
         <item name="actionBarStyle">@style/My.Theme.ActionBar</item>
         <item name="actionModeStyle">@style/My.Theme.ActionMode</item>
+        <item name="actionModeCloseDrawable">@drawable/abc_ic_clear_mtrl_alpha</item>
 
         <item name="android:autoCompleteTextViewStyle">@style/My.Theme.AutoComplete</item>
 	</style>

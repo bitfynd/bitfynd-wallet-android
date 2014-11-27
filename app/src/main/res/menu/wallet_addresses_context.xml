@@ -10,7 +10,7 @@
 		android:titleCondensed="@string/button_edit"/>
 	<item
 		android:id="@+id/wallet_addresses_context_copy_to_clipboard"
-		android:icon="@drawable/ic_action_copy"
+		android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
 		app:showAsAction="ifRoom|withText"
 		android:title="@string/address_book_context_copy_to_clipboard_title"
 		android:titleCondensed="@string/button_copy"/>
