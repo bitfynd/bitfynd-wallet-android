@@ -24,6 +24,10 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.text.Html;
 
+import de.schildbach.wallet.Configuration;
+import de.schildbach.wallet.R;
+import de.schildbach.wallet.WalletApplication;
+
 /**
  * @author Andreas Schildbach
  */
@@ -32,6 +36,10 @@ public final class HelpDialogFragment extends DialogFragment
 	private static final String FRAGMENT_TAG = HelpDialogFragment.class.getName();
 
 	private static final String KEY_MESSAGE = "message";
+
+    private Activity activity;
+    private WalletApplication application;
+    private Configuration config;
 
 	public static void page(final FragmentManager fm, final int messageResId)
 	{
@@ -50,14 +58,14 @@ public final class HelpDialogFragment extends DialogFragment
 		return fragment;
 	}
 
-	private Activity activity;
-
 	@Override
 	public void onAttach(final Activity activity)
 	{
 		super.onAttach(activity);
 
 		this.activity = activity;
+        this.application = (WalletApplication) activity.getApplication();
+        this.config = application.getConfiguration();
 	}
 
 	@Override
@@ -69,6 +77,11 @@ public final class HelpDialogFragment extends DialogFragment
 		final DialogBuilder dialog = new DialogBuilder(activity);
 		dialog.setMessage(Html.fromHtml(getString(messageResId)));
 		dialog.singleDismissButton(null);
+
+        if(messageResId == R.string.help_safety) {
+            config.setDisclaimerDisabled();
+        }
+
 		return dialog.create();
 	}
 }

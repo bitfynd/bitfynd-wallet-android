@@ -5,9 +5,9 @@
     <color name="main_dark_orange">#ffe69a00</color>
     <color name="main_dark">#ff333333</color>
 
-    <color name="gradient_start">#22000000</color>
-
     <color name="balance_light">#ffffffff</color>
+    <color name="bg_warning">#ffe53935</color>
+    <color name="gradient_start">#22000000</color>
 
 	<!-- foreground -->
 	<color name="fg_significant">#ff000000</color>

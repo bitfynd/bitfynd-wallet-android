@@ -148,6 +148,11 @@ public class Configuration
 		return prefs.getBoolean(PREFS_KEY_DISCLAIMER, true);
 	}
 
+    public void setDisclaimerDisabled()
+    {
+        prefs.edit().putBoolean(PREFS_KEY_DISCLAIMER, false).commit();
+    }
+
 	public String getExchangeCurrencyCode()
 	{
 		return prefs.getString(PREFS_KEY_EXCHANGE_CURRENCY, null);

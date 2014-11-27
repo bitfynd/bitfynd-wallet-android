@@ -217,8 +217,6 @@
 	<string name="preferences_data_usage_summary">Show options to restrict data usage on mobile networks.</string>
     <string name="preferences_warning_title">Warning</string>
     <string name="preferences_warning_summary">This is all unfinished stuff. Use at your own risk!</string>
-    <string name="preferences_disclaimer_title">Show disclaimer</string>
-    <string name="preferences_disclaimer_summary">Have you really read the safety notes? Did you already back up your private keys to a safe place?</string>
     <string name="preferences_bip70scantopay_title">BIP70 for scan-to-pay</string>
     <string name="preferences_bip70scantopay_summary">Use payment protocol for QR-code initiated payments</string>
 	<string name="preferences_report_issue_title">Report issue</string>

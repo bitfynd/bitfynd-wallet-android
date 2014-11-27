@@ -40,12 +40,6 @@
 			android:icon="@drawable/ic_menu_warning"
 			android:summary="@string/preferences_warning_summary"
 			android:title="@string/preferences_warning_title" />
-
-		<CheckBoxPreference
-			android:defaultValue="true"
-			android:key="disclaimer"
-			android:summary="@string/preferences_disclaimer_summary"
-			android:title="@string/preferences_disclaimer_title" />
 		<CheckBoxPreference
 			android:defaultValue="false"
 			android:key="labs_qr_payment_request"

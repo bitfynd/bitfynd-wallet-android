@@ -66,7 +66,7 @@ public final class WalletDisclaimerFragment extends Fragment implements OnShared
 	{
 		super.onAttach(activity);
 
-		this.activity = (WalletActivity) activity;
+		this.activity = activity;
 		final WalletApplication application = (WalletApplication) activity.getApplication();
 		this.config = application.getConfiguration();
 		this.loaderManager = getLoaderManager();
@@ -154,9 +154,12 @@ public final class WalletDisclaimerFragment extends Fragment implements OnShared
 		messageView.setText(text);
 
 		final View view = getView();
-		final ViewParent parent = view.getParent();
-		final View fragment = parent instanceof FrameLayout ? (FrameLayout) parent : view;
-		fragment.setVisibility(text.length() > 0 ? View.VISIBLE : View.GONE);
+        final ViewParent parent;
+        if (view != null) {
+            parent = view.getParent();
+            final View fragment = parent instanceof FrameLayout ? (FrameLayout) parent : view;
+            fragment.setVisibility(text.length() > 0 ? View.VISIBLE : View.GONE);
+        }
 	}
 
 	private final LoaderCallbacks<BlockchainState> blockchainStateLoaderCallbacks = new LoaderManager.LoaderCallbacks<BlockchainState>()
