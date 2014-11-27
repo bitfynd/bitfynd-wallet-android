@@ -112,7 +112,7 @@
 		<activity
 			android:name="de.schildbach.wallet.ui.SendCoinsQrActivity"
 			android:configChanges="keyboard|keyboardHidden"
-			android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+			android:theme="@style/My.Theme.Fullscreen" >
 		</activity>
 		<activity
 			android:name="de.schildbach.wallet.ui.RequestCoinsActivity"
