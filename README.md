@@ -5,6 +5,10 @@ The app is based on decentralized P2P/SPV platform of BitcoinJ and on Bitcoin wa
 
 None of third-party servers are involved nor in storing, nor in transferring your Bitcoins - you're the master of your Bitcoins.
 
+#### Support the project
+
+(Tip to support the project)[https://www.coinbase.com/mantaszilius]
+
 ### Building the app
 
 The source code of Bitcoin wallet app by Andreas Schildbach is transformed from Eclipse IDE format to Android Studio IDE format. Look for information online how to build an app from source code with Android Studio IDE.
