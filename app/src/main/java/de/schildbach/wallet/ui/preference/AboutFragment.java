@@ -42,6 +42,7 @@ public final class AboutFragment extends PreferenceFragment
 
 	private static final String KEY_ABOUT_VERSION = "about_version";
 	private static final String KEY_ABOUT_MARKET_APP = "about_market_app";
+    private static final String KEY_ABOUT_CREDITS_BITCOIN_WALLET = "about_credits_bitcoin_wallet";
 	private static final String KEY_ABOUT_CREDITS_BITCOINJ = "about_credits_bitcoinj";
 
 	@Override
@@ -63,10 +64,17 @@ public final class AboutFragment extends PreferenceFragment
 
 		findPreference(KEY_ABOUT_VERSION).setSummary("v" + application.packageInfo().versionName
                 + " / " + getString(R.string.about_copyright));
-		Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(Constants.MARKET_APP_URL, BuildConfig.APPLICATION_ID)));
+
+		Intent marketIntent = new Intent(Intent.ACTION_VIEW,
+                Uri.parse(String.format(Constants.MARKET_APP_URL, BuildConfig.APPLICATION_ID)));
 		if (packageManager.resolveActivity(marketIntent, 0) == null)
-			marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(Constants.WEBMARKET_APP_URL, BuildConfig.APPLICATION_ID)));
+			marketIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(String.format(Constants.WEBMARKET_APP_URL, BuildConfig.APPLICATION_ID)));
 		findPreference(KEY_ABOUT_MARKET_APP).setIntent(marketIntent);
-		findPreference(KEY_ABOUT_CREDITS_BITCOINJ).setTitle(getString(R.string.about_credits_bitcoinj_title, VersionMessage.BITCOINJ_VERSION));
+
+        findPreference(KEY_ABOUT_CREDITS_BITCOIN_WALLET).setTitle(
+                getString(R.string.about_credits_bitcoin_wallet_title, Constants.BITCOIN_WALLET_APP_CODE_BASE_VERSION));
+		findPreference(KEY_ABOUT_CREDITS_BITCOINJ).setTitle(
+                getString(R.string.about_credits_bitcoinj_title, VersionMessage.BITCOINJ_VERSION));
 	}
 }

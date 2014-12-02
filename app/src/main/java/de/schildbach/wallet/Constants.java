@@ -39,6 +39,9 @@ public final class Constants
     /** Network this wallet is on (e.g. testnet or mainnet). */
 	public static final NetworkParameters NETWORK_PARAMETERS = TEST ? TestNet3Params.get() : MainNetParams.get();
 
+    /** Code-base version of main Bitcoin Wallet app for Android by Andreas Schildbach */
+    public static final double BITCOIN_WALLET_APP_CODE_BASE_VERSION = 4.13;
+
 	public final static class Files
 	{
 		private static final String FILENAME_NETWORK_SUFFIX = NETWORK_PARAMETERS.getId().equals(NetworkParameters.ID_MAINNET) ? "" : "-testnet";

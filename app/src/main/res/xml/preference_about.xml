@@ -30,8 +30,7 @@
 		android:title="@string/about_market_app_title" />
     <Preference
         android:key="about_credits_bitcoin_wallet"
-        android:summary="github.com/schildbach/bitcoin-wallet"
-        android:title="@string/about_credits_bitcoin_wallet_title" >
+        android:summary="github.com/schildbach/bitcoin-wallet" >
         <intent
             android:action="android.intent.action.VIEW"
             android:data="https://github.com/schildbach/bitcoin-wallet" />
