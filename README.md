@@ -7,7 +7,7 @@ None of third-party servers are involved nor in storing, nor in transferring you
 
 #### Support the project
 
-(Tip to support the project)[https://www.coinbase.com/mantaszilius]
+[Tip to support the project](https://www.coinbase.com/mantaszilius)
 
 ### Building the app
 
