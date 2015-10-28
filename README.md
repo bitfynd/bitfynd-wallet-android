@@ -1,3 +1,4 @@
+# This repo has outdated packages! DEPRECATED!
 # Bitfynd
 ### Bitcoin Wallet app for Android
 
